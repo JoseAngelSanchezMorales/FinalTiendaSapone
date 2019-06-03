@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/homecss.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title> <%- page_title %> </title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+
+        .letras {
+            font-family: 'Lobster', cursive;
+            font-size: 2rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .fondoJabones {
+            width: 100%;
+            height: 95vh;
+            background: #4c4c4c;
+            background-image: url('https://res.cloudinary.com/saponestore/image/upload/v1559572512/jabones_eyzhtk.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .fondoSelum {
+            width: 100%;
+            height: 95vh;
+            background: #4c4c4c;
+            background-image: url('https://res.cloudinary.com/saponestore/image/upload/v1559572513/sales_btvv9l.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .fondoExfo {
+            width: 100%;
+            height: 95vh;
+            background: #4c4c4c;
+            background-image: url('https://res.cloudinary.com/saponestore/image/upload/v1559572511/IMG_20190420_184105_odf7td.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .fondoTexto {
+            background: white;
+            box-shadow: 5px 10px 7px rgba(0, 0, 0, .5);
+            padding-bottom: 1%;
+        }
+
+        .fondoTexto:hover {
+            color: #fff;
+            background: #28c8d4;
+            cursor: pointer;
+        }
+
+        .divOculta {
+            background: #fff;
+            margin: 0 auto;
+            padding: 1rem;
+            width: 95%;
+            height: 55%;
+            border-radius: 0px 0px 15px 15px;
+
+        }
+
+        .divInternaOculta {
+            background: rgb(173, 44, 87);
+            margin: 0 auto;
+            padding: .1rem;
+            color: #fff;
+        }
+
+        .borde {
+            border-radius: 0px 0px 15px 15px;
+        }
+
+
+        #wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 150px;
+            overflow: hidden;
+            z-index: 100;
+            box-shadow: 5px 10px 7px rgba(0, 0, 0, .5);
+        }
+
+        .layer {
+            position: absolute;
+            width: 100vw;
+            min-height: 300px;
+            overflow: hidden;
+            box-shadow: 5px 10px 7px rgba(0, 0, 0, .5);
+        }
+
+        .layer .content-wrap {
+            position: absolute;
+            width: 100vw;
+            min-height: 300px;
+        }
+
+        .layer .content-body {
+            width: 25%;
+            position: absolute;
+            transform: translateY(-50%);
+        }
+
+        .bottom {
+            background: white;
+            z-index: 101;
+        }
+
+        .bottom .content-body {
+            top: 30%;
+            width: 100%;
+            left: 30%;
+        }
+
+        .top {
+            background: white;
+            color: black;
+            z-index: 102;
+            width: 50vh;
+            font-size: 4rem;
+        }
+
+        .top :hover {
+            background: rgb(66, 209, 214);
+            z-index: 102;
+            color: white;
+            cursor: pointer;
+        }
+
+        .top .content-body {
+            width: 25%;
+            text-align: center;
+            top: 25%;
+            left: 1%;
+            color: black;
+        }
+
+        .skewed .top {
+            transform: skew(-10deg);
+            margin-left: -1000px;
+            width: calc(25vw + 1000px);
+        }
+
+        .skewed .top .content-wrap {
+            transform: skew(20deg);
+            margin-left: 1000px;
+        }
+
+        #wrapperInv {
+            position: relative;
+            width: 100%;
+            min-height: 150px;
+            overflow: hidden;
+            z-index: 100;
+            box-shadow: 5px 10px 7px rgba(0, 0, 0, .5);
+        }
+
+        .layerInv {
+            position: absolute;
+            width: 100vw;
+            min-height: 300px;
+            overflow: hidden;
+            box-shadow: 5px 10px 7px rgba(0, 0, 0, .5);
+        }
+
+        .layerInv .content-wrap {
+            position: absolute;
+            width: 100vw;
+            min-height: 300px;
+        }
+
+        .layerInv .content-body {
+            width: 25%;
+            position: absolute;
+            transform: translateY(-50%);
+        }
+
+        .bottomInv {
+            background: white;
+            z-index: 101;
+            color: black;
+            font-size: 4rem;
+        }
+
+        .bottomInv .content-body {
+            top: 30%;
+            width: 100%;
+            left: 80%;
+        }
+
+        .bottomInv :hover {
+            background: rgb(66, 209, 214);
+            z-index: 102;
+            color: white;
+            cursor: pointer;
+        }
+
+        .topInv {
+            background: white;
+            z-index: 101;
+        }
+
+        .topInv .content-body {
+            top: 30%;
+            width: 100%;
+            left: 20%;
+        }
+
+        .skewedInv .topInv {
+            transform: skew(-10deg);
+            margin-left: -1000px;
+            width: calc(75vw + 1000px);
+        }
+
+        .skewedInv .topInv .content-wrap {
+            transform: skew(20deg);
+            margin-left: 1000px;
+        }
+
+
+        #wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 150px;
+            overflow: hidden;
+            z-index: 100;
+            box-shadow: 5px 10px 7px rgba(0, 0, 0, .5);
+        }
+
+        .layer {
+            position: absolute;
+            width: 100vw;
+            min-height: 300px;
+            overflow: hidden;
+            box-shadow: 5px 10px 7px rgba(0, 0, 0, .5);
+        }
+
+        .layer .content-wrap {
+            position: absolute;
+            width: 100vw;
+            min-height: 300px;
+        }
+
+        .layer .content-body {
+            width: 25%;
+            position: absolute;
+            transform: translateY(-50%);
+        }
+
+        .bottom {
+            background: white;
+            z-index: 101;
+        }
+
+        .bottom .content-body {
+            top: 30%;
+            width: 100%;
+            left: 30%;
+        }
+
+        .top {
+            background: white;
+            color: black;
+            z-index: 102;
+            width: 50vh;
+            font-size: 4rem;
+
+        }
+
+        .top:hover {
+            background: rgb(66, 209, 214);
+            z-index: 102;
+            color: white;
+            cursor: pointer;
+            transition: 500ms;
+        }
+
+        .top .content-body {
+            width: 25%;
+            text-align: center;
+            top: 25%;
+            left: 1%;
+            color: black;
+        }
+
+        .skewed .top {
+            transform: skew(-10deg);
+            margin-left: -1000px;
+            width: calc(25vw + 1000px);
+        }
+
+        .skewed .top .content-wrap {
+            transform: skew(20deg);
+            margin-left: 1000px;
+        }
+
+
+
+        #wrapperInv {
+            position: relative;
+            width: 100%;
+            min-height: 150px;
+            overflow: hidden;
+            z-index: 100;
+            box-shadow: 5px 10px 7px rgba(0, 0, 0, .5);
+        }
+
+        .layerInv {
+            position: absolute;
+            width: 100vw;
+            min-height: 300px;
+            overflow: hidden;
+            box-shadow: 5px 10px 7px rgba(0, 0, 0, .5);
+        }
+
+        .layerInv .content-wrap {
+            position: absolute;
+            width: 100vw;
+            min-height: 300px;
+        }
+
+        .layerInv .content-body {
+            width: 25%;
+            position: absolute;
+            transform: translateY(-50%);
+        }
+
+        .bottomInv {
+            background: white;
+            z-index: 101;
+            color: black;
+            font-size: 4rem;
+        }
+
+        .bottomInv .content-body {
+            top: 30%;
+            width: 100%;
+            left: 80%;
+        }
+
+        .bottomInv :hover {
+            background: rgb(66, 209, 214);
+            z-index: 102;
+            color: white;
+            cursor: pointer;
+            transition: 500ms;
+        }
+
+        .topInv {
+            background: white;
+            z-index: 101;
+        }
+
+        .topInv .content-body {
+            top: 30%;
+            width: 100%;
+            left: 20%;
+        }
+
+        .skewedInv .topInv {
+            transform: skew(-10deg);
+            margin-left: -1000px;
+            width: calc(75vw + 1000px);
+        }
+
+        .skewedInv .topInv .content-wrap {
+            transform: skew(20deg);
+            margin-left: 1000px;
+        }
+
+
+        .mycenter {
+            text-align: center;
+        }
+
+        .myicon {
+            font-size: 4rem;
+            text-align: center
+        }
+
+        .format {
+            text-decoration: none;
+        }
+    </style>

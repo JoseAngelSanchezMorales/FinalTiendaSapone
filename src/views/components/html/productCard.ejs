@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <% if(products.length > 0){ %>
+
+        <% for (let product of products) { %>
+        <div class="col-sm-12 col-md-6 col-lg-4 mt-4">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h6><%= product.product_name %></h6>
+                </div>
+                <div class="card-body">
+                    <img src="<%= product.product_image %>" class="card-img-top img_small mb-4" alt="...">
+
+                    <h6 class="card-subtitle mb-2 text-muted"> $ <%= product.product_price %>.00</h6>
+                    <p class="card-text"><%= product.product_description %></p>
+                    <% if( path == '/admin/products') { %>
+                    <div class="row justify-content-center">
+                        <div class="col-5">
+                            <a href="/admin/edit-product/<%= product.id %>"
+                                class="btn btn-info btn-block btn-sm">Edit</a>
+                        </div>
+                        <div class="col-5">
+                            <form action="/admin/delete-product/<%= product.id %>" method="POST">
+                                <button type="submit" class="btn btn-danger btn-block btn-sm">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                    <%  } else if( path == '/cart' ) { %>
+                    <div class="card__actions">
+                        <form action="/cart/<%= product.id %>" method="POST">
+                            <button type="submit" class="btn btn-primary">Add to car</button>
+                        </form>
+                    </div>
+
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        <% } else { %>
+        <div class="container d-flex justify-content-center align-items-center vh-100">
+            <div class="row center">
+                <div class="col-12">
+                    <h2 class="">DONT HAVE PRODUCTS</h2>
+                </div>
+                <% if(!path === '/cart'){ %>
+                <div class="col-12">
+                    <a href="/admin/new-product" class="btn btn-primary btn-sm mt-2">add products</a>
+                </div>
+
+                <div class="col-12">
+                    <h6>add some products</h6>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
