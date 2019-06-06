@@ -40,24 +40,39 @@ router.post('/new-product', (req, res, next) => {
     });
 });
 
-router.get('admin/edit-product/:idProducto', async (req, res, next) => {
+router.get('/edit/:product/:idProducto', async (req, res, next) => {
     const id = req.params.idProducto;
-    await Product.findByIdAndDelete(id);
-    res.redirect('/admin/products')
-});
-
-router.post('admin/edit-product/:idProducto', async (req, res, next) => {
-    const id = req.params.idProducto;
-    const prod = await Product.findById(id);
+    const product = await productSchema.findById(id);
     res.render('admin/edit-product', {
-        prod: prod,
-        page_title: `update ${prod.firstname}`
+        product: product,
+        page_title: `update ${product.firstname}`
     });
 });
 
-router.get('/admin/login', (req,res,next)=> {
-    res.render('admin/signin',{
-        page_title : 'Admin signin'
+router.post('/edit/:product/:idProducto', async (req, res, next) => {
+    const id = req.params.idProducto;
+    const product = await productSchema.findById(id);
+    product.product_name = req.body.product_name;
+    product.product_price = req.body.product_price;
+    product.product_image = req.body.product_image;
+    product.product_description = req.body.product_description;
+    product.product_category = req.body.product_category;
+    product.save();
+
+    res.redirect('/admin/products')
+});
+
+
+router.post('/delete/:product/:idProducto', async (req, res, next) => {
+    const id = req.params.idProducto;
+    await productSchema.findByIdAndDelete(id);
+    res.redirect('/admin/products')
+});
+
+
+router.get('/admin/login', (req, res, next) => {
+    res.render('admin/signin', {
+        page_title: 'Admin signin'
     })
 })
 
@@ -65,6 +80,6 @@ router.post('/admin/login', passport.authenticate('local-signin', {
     successRedirect: '/admin',
     failureRedirect: 'admin/signin',
     failureFlash: true
-  }));
+}));
 
 module.exports = router;

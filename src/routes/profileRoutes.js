@@ -9,7 +9,6 @@ let car = {
     totalToPay: 0
 }
 
-
 router.get('/settings/:id', isAuthenticated, async (req, res, next) => {
     const usr = await userSchema.findById(req.params.id)
     res.render('users/profile/settings', {

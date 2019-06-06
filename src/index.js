@@ -21,7 +21,7 @@ app.set('port', process.env.PORT || 3000)
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }))
-app.use(express.static(path.join(__dirname, 'src/public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Passport Sesions
 app.use(session({

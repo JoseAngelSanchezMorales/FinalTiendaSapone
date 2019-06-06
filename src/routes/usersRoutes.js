@@ -49,6 +49,12 @@ router.get('/logout', (req, res, next) => {
     res.redirect('/')
 })
 
+router.post('/saludo',(req,res,next)=> {
+    const nombre = req.body.prueba_name;
+
+    res.send(` Hola ${nombre}`);
+});
+
 function isAuthenticated(req, res, next) {
     if(req.isAuthenticated()) {
       return next();

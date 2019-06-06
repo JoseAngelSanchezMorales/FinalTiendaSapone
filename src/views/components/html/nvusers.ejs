@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg bg-light navbar-light">
-    <a class="navbar-brand pasifico " href="/">Sapone</a>
+<nav class="navbar navbar-expand-lg colornav  shadow-sm navbar-light">
+    <%- include('./logo.ejs') %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -7,18 +7,18 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
             <% if (user) { %>
-                <li class="nav-item"> <a href="/" class="nav-link">Home</a> </li>
-                <li class=" nav-item"> <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a> </li>
-                <li class="nav-item"> <a class="nav-link" href="/profile">Profile</a> </li>
-                <li class="nav-item">
-                    <form action="/logout" method='GET'>
-                        <button type="submit" class="btn btn-primay">Log out</button>
-                    </form>
-                </li>
+            <li class="nav-item"> <a href="/" class="nav-link">Home</a> </li>
+            <li class=" nav-item"> <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="/profile">Profile</a> </li>
+            <li class="nav-item">
+                <form action="/logout" method='GET'>
+                    <button type="submit" class="btn btn-primay">Log out</button>
+                </form>
+            </li>
             <% } else {%>
-                <li class="nav-item"> <a href="/signup" class="nav-link">Signup</a> </li>
-                <li class=" nav-item"> <a class="nav-link" href="/signin">Signin</i></a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#">About us</a> </li>
+            <li class="nav-item"> <a href="/signup" class="nav-link">Signup</a> </li>
+            <li class=" nav-item"> <a class="nav-link" href="/signin">Signin</i></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="shttp://localhost:8080/aboutus/aboutus.jsp">About us</a> </li>
             <% } %>
         </ul>
     </div>
