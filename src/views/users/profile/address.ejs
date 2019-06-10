@@ -1,0 +1,51 @@
+<%- include('../../components/html/header.ejs') %>
+</head>
+
+<body>
+
+    <%- include('../../components/html/nvusers.ejs') %>
+
+    <div class="container vh-100 mt-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-12 micenter mb-5">
+                <h5>Agregar Direccion</h5>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <form method="POST" action="/new/address/<%= user.id %> ">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="calle">Calle</label>
+                                <input type="text" class="form-control" id="calle" name="calle">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="colonia">Colonia </label>
+                                <input type="text" class="form-control" id="colonia" name="colonia">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <input type="text" class="form-control" id="estado" name="estado">
+                    </div>
+                    <div class="form-group">
+                        <label for="municipio">Municipio</label>
+                        <input type="email" class="form-control" id="municipio" name="municipio">
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="cp">C.P</label>
+                                <input type="email" class="form-control" id="cp" name="cp">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agregar direccion</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../../components/html/tail.ejs') %>

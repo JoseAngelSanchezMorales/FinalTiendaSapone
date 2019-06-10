@@ -1,0 +1,38 @@
+<%- include('../../components/html/header.ejs') %>
+</header>
+
+<body>
+    <% if( path == 'admin/orders') { %>
+    <%- include('../../components/html/nvadmin.ejs') %>
+    <% } else { %>
+    <%- include('../../components/html/nvusers.ejs') %>
+    <% } %>
+
+    <div class="container">
+        <div class="row mt-5">
+            <% for (let product of orders) { %>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card mt-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Pedido <%= product.id %> </h5>
+                        <p class="card-text"> <%= product.fecha %> </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Productos: </li>
+                        <% for (let prd of product.productos) { %>
+                        <li class="list-group-item"> <%= prd.product_name %> // $ <%= prd.product_price %> </li>
+                        <% } %>
+                    </ul>
+                    <div class="card-body">
+                        <h6>Total: <%= product.total %></h6>
+                        <h6>Status: <%= product.status %></h6>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+
+
+    <%- include('../../components/html/tail.ejs') %>

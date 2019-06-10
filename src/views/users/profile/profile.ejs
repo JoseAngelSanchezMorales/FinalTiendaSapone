@@ -5,6 +5,17 @@
 
     <%- include('../../components/html/nvusers.ejs') %>
 
+    <% if (success) { %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <%= success %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <% } else { %>
+    
+        <% } %>
+
     <div class="container mycenter">
         <div class="row mt-5">
             <div class="col-12 mb-4">
@@ -39,7 +50,7 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Address</h5>
-                                        <a href="" class=" format stretched-link">You can add addres for your
+                                        <a href="/address" class=" format stretched-link">You can add addres for your
                                             deliveries</a>
                                     </div>
                                 </div>
@@ -71,7 +82,7 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Orders</h5>
-                                        <a href="#" class="stretched-link">Check my orders</a>
+                                        <a href="/orders/<%= user.id %>" class="stretched-link">Check my orders</a>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +97,7 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Cards</h5>
-                                        <a href="#" class="stretched-link">Add other way to pay</a>
+                                        <a href="/card" class="stretched-link">Add other way to pay</a>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +112,7 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">Wishes</h5>
-                                        <a href="#" class="stretched-link">Your list of wishes</a>
+                                        <a href="/wishes" class="stretched-link">Your list of wishes</a>
                                     </div>
                                 </div>
                             </div>

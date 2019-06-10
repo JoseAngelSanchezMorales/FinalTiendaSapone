@@ -6,7 +6,11 @@ const product = new Schema({
     product_category: String,
     product_image: String,
     product_price: Number,
-    product_description: String
+    product_description: String,
+    wish:{
+        type : Boolean,
+        default: false
+    }
 });
 
 module.exports = mongoose.model('product', product);

@@ -13,6 +13,9 @@ body {
   background: rgb(255, 255, 255);
 }
 
+.micenter{
+  text-align: center;
+}
 
 .letras {
   font-family: 'Lobster', cursive;

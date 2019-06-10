@@ -1,0 +1,45 @@
+<%- include('../../components/html/header.ejs') %>
+</head>
+
+<body>
+
+    <%- include('../../components/html/nvusers.ejs') %>
+
+    <div class="container vh-100 mt-5">
+        <div class="row   d-flex justify-content-center align-items-center">
+            <div class="col-12 micenter mb-5">
+                <h5>Agregar Targeta</h5>
+            </div>
+            <div class="col-6">
+                <form method="POST" action="/new/card/<%= user.id %> ">
+                    <div class="form-group">
+                        <label for="numero">Numero de la targeta</label>
+                        <input type="number" max="16" class="form-control" id="numero" name="numero">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="fechaCadicidad">Fecha caducidad</label>
+                                <input type="date" class="form-control" id="fechaCadicidad" name="fechaCadicidad"
+                                  >
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="numeroSeguridad">Num seguridad </label>
+                                <input type="number"  max="3" class="form-control" id="numeroSeguridad" name="numeroSeguridad">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Correspondiente</label>
+                        <input type="email" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agregar targeta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../../components/html/tail.ejs') %>

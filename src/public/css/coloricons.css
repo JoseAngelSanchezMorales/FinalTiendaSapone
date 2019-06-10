@@ -17,3 +17,8 @@
 .brown{
     color: #A17917;
 }
+
+.mybtn{
+    border: none;
+    outline: none;
+}
